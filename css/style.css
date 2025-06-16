@@ -112,7 +112,7 @@ html, body {
 /* HOME IMAGE ANIMATION */
 .react-img {
   position: relative;
-  width: 100%;
+  width: 30px;
   height: auto;
   max-width: 100%;
   margin-left: auto;
@@ -169,39 +169,11 @@ html, body {
   border-radius: 0.7rem;
 }
 
-/* SKILLS */
-.Skills-imgs {
-  background-color: transparent;
-}
-.progress-card {
-  padding: 2rem;
-  background-color: transparent;
-  text-align: center;
-}
-.progress-card:hover {
-  transform: scale(1.1);
-  transition: 0.6s;
-}
-.progress-value {
-  position: relative;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-.html-progress { color: #fca61f; }
-.javascript-progress { color: #6f34fe; }
-.php-progress { color: #20c997; }
-.reactjs-progress { color: #3f396d; }
-.text {
-  position: relative;
-  font-size: 1.2rem;
-  font-weight: 500;
+/* PORTFOLIO */
+#ACHELOCA{
   color: red;
 }
-.heading p {
-  font-size: 1.3rem;
-}
 
-/* PORTFOLIO */
 #myBtnContainer {
   margin-bottom: 45px;
 }
