@@ -84,7 +84,9 @@
         <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
           ¡Contratame!
         </button>
-        <a href="#" class="link ms-4 d-none">Mi Trabajo</a>
+       <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
+        <a href="Entry Level Web Developer Resume.pdf" download="Curriculum_Fernando_Arana.pdf" style="text-decoration: none;color: #fff;">Descargar Curriculum</a>
+        </button>
       </div>
       <div class="col-10 col-md-4 d-none d-md-block">
         <img src="img/Banner.jpg" class="img-fluid" alt="" />
@@ -163,60 +165,70 @@
       <button class="filter-item" data-filter="webapp">Aplicación Web</button>
       <button class="filter-item" data-filter="website">Sitio Web</button>
     </div>
-    <div class="portfolio-body">
-      <div class="row justify-content-evenly px-4">
-        <div class="post col-md-4 game all col-10 mt-3 mt-md-0" data-aos="fade-up">
-          <div class="card">
-            <img src="img/Derlacstore.png" class="card-img-top" alt="..." />
-            <div class="card-body text-center">
-              <h4 class="card-title">Derlacstore</h4>
-              <span class="badge bg-secondary badge-pill">ReactVite</span>
-              <span class="badge bg-secondary badge-pill">JavaScript</span>
-              <span class="badge bg-secondary badge-pill mb-2">Ecommerce</span><br />
-              <a href="#" class="link">Más informacion</a>
-            </div>
-          </div>
-        </div>
-        <div class="post col-md-4 website all col-10 mt-3 mt-md-0" data-aos="fade-up">
-          <div class="card">
-            <img src="img/Clone gta vi.png" class="card-img-top" alt="..." />
-            <div class="card-body text-center">
-              <h4 class="card-title">Gta VI - CLONE</h4>
-              <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-              <span class="badge bg-secondary badge-pill">JavaScript</span>
-              <span class="badge bg-secondary badge-pill mb-2">Sitio Web</span><br />
-              <a href="#" class="read-more-btn link">Más informacion</a>
-            </div>
-          </div>
-        </div>
-        <div class="post col-md-4 webapp all col-10 mt-3 mt-md-0" data-aos="fade-up">
-          <div class="card">
-            <img src="img/game.webp" class="card-img-top" alt="..." />
-            <div class="card-body text-center">
-              <h4 class="card-title">Unity3d Juego TopDown</h4>
-              <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-              <span class="badge bg-secondary badge-pill">Unity3d</span>
-              <span class="badge bg-secondary badge-pill mb-2">Juego</span><br />
-              <a href="#" class="read-more-btn link">Mas informacion</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-content-evenly mt-4 px-4">
-        <div class="post col-md-4 game all col-10 mt-3 mt-md-0" data-aos="fade-up">
-          <div class="card">
-            <img src="img/BoomStore.png" class="card-img-top" alt="..." />
-            <div class="card-body text-center">
-              <h4 class="card-title">BoomStore - Diseño Instagram</h4>
-              <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-              <span class="badge bg-secondary badge-pill">JavaScript</span>
-              <span class="badge bg-secondary badge-pill mb-2">App</span><br />
-              <a href="#" class="read-more-btn link">Mas informacion</a>
-            </div>
-          </div>
+
+<!-- Contenedor de proyectos en fila -->
+<div class="container">
+  <div class="row justify-content-center gy-4" id="portfolio-list">
+
+    <!-- Proyecto 1 -->
+    <div class="post col-lg-3 col-md-5 col-sm-10 website all">
+      <div class="card h-100">
+        <img src="img/Clone gta vi.png" class="card-img-top portfolio-img" alt="GTA VI Clone">
+        <div class="card-body text-center">
+          <h4 class="card-title">Gta VI - CLONE</h4>
+          <span class="badge bg-secondary">HTML&CSS</span>
+          <span class="badge bg-secondary">JavaScript</span>
+          <span class="badge bg-secondary mb-2">Sitio Web</span><br>
+          <a href="#" class="link">Más información</a>
         </div>
       </div>
     </div>
+
+    <!-- Proyecto 2 -->
+    <div class="post col-lg-3 col-md-5 col-sm-10 webapp all">
+      <div class="card h-100">
+        <img src="img/Derlacstore.png" class="card-img-top portfolio-img" alt="Derlacstore">
+        <div class="card-body text-center">
+          <h4 class="card-title">Derlacstore</h4>
+          <span class="badge bg-secondary">ReactVite</span>
+          <span class="badge bg-secondary">JavaScript</span>
+          <span class="badge bg-secondary mb-2">Ecommerce</span><br>
+          <a href="#" class="link">Más información</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto 3 -->
+    <div class="post col-lg-3 col-md-5 col-sm-10 webapp all">
+      <div class="card h-100">
+        <img src="img/BoomStore.png" class="card-img-top portfolio-img" alt="BoomStore">
+        <div class="card-body text-center">
+          <h4 class="card-title">BoomStore</h4>
+          <span class="badge bg-secondary">HTML&CSS</span>
+          <span class="badge bg-secondary">JavaScript</span>
+          <span class="badge bg-secondary mb-2">App</span><br>
+          <a href="#" class="link">Más información</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto 4 -->
+    <div class="post col-lg-3 col-md-5 col-sm-10 game all">
+      <div class="card h-100">
+        <img src="img/game.webp" class="card-img-top portfolio-img" alt="Juego Unity">
+        <div class="card-body text-center">
+          <h4 class="card-title">Unity3D Juego</h4>
+          <span class="badge bg-secondary">HTML&CSS</span>
+          <span class="badge bg-secondary">Unity3D</span>
+          <span class="badge bg-secondary mb-2">Juego</span><br>
+          <a href="#" class="link">Más información</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
   </section>
   <!-- portfolio section ends here -->
 
