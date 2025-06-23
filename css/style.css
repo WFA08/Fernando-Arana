@@ -171,8 +171,17 @@ html, body {
 
 /* PORTFOLIO */
 #ACHELOCA{
-  color: red;
+  color: #ff3b3b;
+  font-weight: bold;
+  cursor: help;
+  transition: transform 0.2s ease, text-shadow 0.3s ease;
 }
+
+#ACHELOCA:hover {
+  transform: scale(1.2);
+  text-shadow: 1px 1px 3px rgba(255, 59, 59, 0.5);
+}
+
 
 .portfolio-img{
   height: 200px;
