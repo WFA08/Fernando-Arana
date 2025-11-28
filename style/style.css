@@ -12,7 +12,8 @@ body{
     color: #ededed;
     background-color: #081b29; /* Fondo fijo */
     height: 100vh;
-    overflow: hidden; /* Evita que el body se desplace */
+    overflow-y: auto;
+    overflow-x: hidden  ;
 }
 
 /* --- HEADER / NAVIGATION (Se mantiene fijo) --- */
@@ -60,7 +61,6 @@ body{
     justify-content: space-between;
     z-index: 90; 
 }
-/* ... (El resto de estilos para .home-sci a y sus pseudo-elementos se mantienen iguales) ... */
 
 .home-sci a{
     position: relative;
@@ -114,17 +114,56 @@ body{
     height: 100vh; /* Ocupa la altura completa de la vista */
     width: 100%;
     
-    /* Layout de 2 columnas para todas las secciones */
-    justify-content: space-between; 
-    align-items: center;
-    flex-direction: row;
-    padding: 0 10%; /* Define las "líneas rojas" de alineación */
-    
     /* Propiedades de Transición y Opacidad */
     transition: opacity 0.5s ease-in-out; 
     opacity: 0; 
     display: none; 
+    
+    /* Configuración compartida de Flexbox */
+    align-items: center; /* Centrado vertical compartido */
+    padding: 0 10%; 
 }
+
+/* === REGLAS ESPECÍFICAS PARA EL LAYOUT === */
+
+/* HOME: Mantener layout de 2 columnas */
+.home {
+    justify-content: space-between; 
+    flex-direction: row;
+}
+
+/* OTRAS SECCIONES: Centrar contenido, elevarlo y usar diseño de 1 columna */
+.about, .projects, .shop {
+    justify-content: center; /* Centrado horizontal del bloque */
+    flex-direction: column; /* Apila el contenido verticalmente */
+    min-height: 100vh;
+    height: auto;
+    /* CRÍTICO: Desplaza el contenido hacia arriba */
+    padding-top: 100px; 
+    padding-bottom: 50px; /* Asegura espacio si el scroll llega al final */
+    /* Asegura que la sección completa tenga un alineamiento de texto por defecto */
+    text-align: center;
+}
+
+/* Nuevos estilos para los bloques de contenido de Sobre Mí (Permite la animación) */
+.about-section-block {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    /* Transición suave para el efecto de scroll */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s;
+    /* Asegura que los márgenes entre bloques funcionen correctamente */
+    margin-bottom: 20px; 
+}
+
+/* Clase para ocultar los bloques con efecto */
+.about-section-block.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    /* Desplazamiento ligero hacia abajo para el efecto de "desaparición" */
+    transform: translateY(20px); 
+}
+
 
 /* CLASE 1: Oculta la sección completamente (usada después del fade-out) */
 .hidden-section {
@@ -142,10 +181,63 @@ body{
 
 /* Contenedor de texto (Columna izquierda) */
 .home-content, .about-content, .projects-content, .shop-content {
-    width: 50%; /* Ocupa la mitad del espacio disponible */
+    /* Por defecto, width: 50% para .home-content */
+    width: 50%; 
     text-align: left;
+    /* Necesario para el scroll fade: */
+    transition: opacity 0.5s ease-out; 
 }
 
+/* CRÍTICO: Anular el width y centrar el bloque de texto para las secciones centradas */
+.about-content, .projects-content, .shop-content {
+    width: 70%; /* Mantiene el bloque de contenido al 70% del espacio */
+    max-width: 800px; /* Impide que sea ridículamente ancho en monitores grandes */
+    text-align: left; 
+    margin: 0 auto;
+}
+
+/* Centra el título principal de la sección */
+.about-content h2, .projects-content h2, .shop-content h2 {
+    font-size: 48px;
+    color: #00abf0;
+    margin-bottom: 30px; /* Espacio después del título principal */
+    text-align: center;
+}
+
+/* Estilos para los iconos de Font Awesome en los títulos de About Me */
+.about-content h2 .fas,
+.about-content h3 .fas {
+    color: #00abf0;
+    margin-right: 10px; /* Añade un poco de espacio a la derecha del icono */
+}
+
+
+/* Estilos de subtítulos (h3) dentro del contenido de About */
+.about-content h3 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #ededed; /* Mantiene el color blanco */
+    margin-top: 35px; /* Espacio grande antes de cada subsección */
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 171, 240, 0.5); /* Línea de énfasis sutil */
+    padding-bottom: 5px;
+}
+
+/* Estilos de párrafos de contenido */
+.about-content p, .projects-content p, .shop-content p {
+    font-size: 18px;
+    line-height: 1.8; /* Aumenta el interlineado para mejor lectura */
+    margin-bottom: 20px; /* Espacio entre párrafos */
+}
+
+/* Estilos para el texto resaltado (strong) */
+.about-content strong {
+    color: #00abf0; /* Color de acento para términos clave (MERN, Linux, Ciberseguridad) */
+    font-weight: 700;
+}
+
+
+/* Estilos de la sección HOME */
 .home-content h1{
     font-size: 56px;
     font-weight: 700;
@@ -163,17 +255,7 @@ body{
     margin: 20px 0 40px;
 }
 
-/* Estilos de las otras secciones */
-.about-content h2, .projects-content h2, .shop-content h2 {
-    font-size: 48px;
-    color: #00abf0;
-    margin-bottom: 20px;
-}
 
-.about-content p, .projects-content p, .shop-content p {
-    font-size: 18px;
-    line-height: 1.6;
-}
 
 /* --- IMAGEN DE PERFIL Y DIFUMINADO (Halo) --- */
 
@@ -190,7 +272,15 @@ body{
     height: 350px; 
 }
 
-/* Solo la sección 'home' tiene el halo y la imagen */
+/* CRÍTICO: Ocultamos las columnas derechas de las secciones centradas */
+.about > div:nth-child(2), 
+.projects > div:nth-child(2), 
+.shop > div:nth-child(2) {
+    display: none; 
+}
+
+
+/* Solo la sección 'home' tiene el halo y la imagen visible */
 .home > div:nth-child(2) {
     overflow: hidden; 
     border-radius: 50%;
@@ -205,7 +295,9 @@ body{
     height: 100%;
     object-fit: cover;
 }
-/* ... (El resto de estilos de botones se mantienen iguales) ... */
+
+/* --- BOTONES (btn-box) --- */
+
 .home-content .btn-box{
     display: flex;
     justify-content: space-between;
