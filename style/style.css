@@ -225,6 +225,7 @@ body{
 
 /* Estilos de párrafos de contenido */
 .about-content p, .projects-content p, .shop-content p {
+    text-align: center;
     font-size: 18px;
     line-height: 1.8; /* Aumenta el interlineado para mejor lectura */
     margin-bottom: 20px; /* Espacio entre párrafos */
@@ -356,4 +357,26 @@ body{
 
 .btn-box a:hover::before {
     width: 100%;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-card {
+  background: #f4f4f4;
+  color: #081b29;
+  padding: 50px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform .2s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
 }
