@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sriracha', cursive;
+}
+
+/* El body ahora maneja el fondo y la altura de la pantalla */
+body{
+    color: #ededed;
+    background-color: #081b29; /* Fondo fijo */
+    height: 100vh;
+    overflow: hidden; /* Evita que el body se desplace */
+}
+
+/* --- HEADER / NAVIGATION (Se mantiene fijo) --- */
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo{
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a{
+    font-size: 18px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+}
+
+.navbar a:hover, 
+.navbar a.active{
+    color: #00abf0;
+}
+
+/* --- ÁREA SOCIAL (Se mantiene fija) --- */
+.home-sci{
+    position: fixed; /* CRÍTICO: Fija la posición */
+    bottom: 40px;
+    left: 10%; /* Alinea con el padding del contenido */
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 90; 
+}
+/* ... (El resto de estilos para .home-sci a y sus pseudo-elementos se mantienen iguales) ... */
+
+.home-sci a{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #00abf0;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.home-sci a:hover {
+    color: #081b29;
+}
+
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #00abf0;
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a:hover::before {
+    width: 100%;
+}
+
+
+/* --- SECCIONES PRINCIPALES (Contenedor que cambia) --- */
+
+/* Definición de la animación */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilos base para todas las secciones (ocupan el 100% del contenedor) */
+.home, .about, .projects, .shop {
+    height: 100vh; /* Ocupa la altura completa de la vista */
+    width: 100%;
+    
+    /* Layout de 2 columnas para todas las secciones */
+    justify-content: space-between; 
+    align-items: center;
+    flex-direction: row;
+    padding: 0 10%; /* Define las "líneas rojas" de alineación */
+    
+    /* Propiedades de Transición y Opacidad */
+    transition: opacity 0.5s ease-in-out; 
+    opacity: 0; 
+    display: none; 
+}
+
+/* CLASE 1: Oculta la sección completamente (usada después del fade-out) */
+.hidden-section {
+    display: none !important;
+}
+
+/* CLASE 2: Muestra el contenido y aplica la animación de entrada */
+.active-section {
+    display: flex !important; /* Muestra el contenido */
+    opacity: 1; 
+    animation: fadeIn 0.8s ease-in-out forwards; 
+}
+
+/* --- ÁREA DE CONTENIDO Y COLUMNAS --- */
+
+/* Contenedor de texto (Columna izquierda) */
+.home-content, .about-content, .projects-content, .shop-content {
+    width: 50%; /* Ocupa la mitad del espacio disponible */
+    text-align: left;
+}
+
+.home-content h1{
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.home-content h3{
+    font-size: 32px;
+    font-weight: 700;
+    color: #00abf0;
+}
+
+.home-content p{
+    font-size: 16px;
+    margin: 20px 0 40px;
+}
+
+/* Estilos de las otras secciones */
+.about-content h2, .projects-content h2, .shop-content h2 {
+    font-size: 48px;
+    color: #00abf0;
+    margin-bottom: 20px;
+}
+
+.about-content p, .projects-content p, .shop-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* --- IMAGEN DE PERFIL Y DIFUMINADO (Halo) --- */
+
+/* Contenedor de la Imagen (Columna Derecha Fija en HOME) */
+.home > div:nth-child(2),
+.about > div:nth-child(2),
+.projects > div:nth-child(2),
+.shop > div:nth-child(2) {
+    /* Mantiene el tamaño reservado para la imagen/columna derecha */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px; 
+    height: 350px; 
+}
+
+/* Solo la sección 'home' tiene el halo y la imagen */
+.home > div:nth-child(2) {
+    overflow: hidden; 
+    border-radius: 50%;
+    box-shadow: 
+        0 0 0px 5px #00abf0,
+        0 0 15px 10px rgba(0, 171, 240, 0.7),
+        0 0 25px 12px rgba(0, 171, 240, 0.4);
+}
+
+.home > div:nth-child(2) img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* ... (El resto de estilos de botones se mantienen iguales) ... */
+.home-content .btn-box{
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;
+}
+
+.btn-box a{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    background: #00abf0;
+    border: 2px solid #00abf0;
+    border-radius: 8px;
+    font-size: 19px;
+    color: #081b29;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.btn-box a:hover{
+    color: #00abf0;
+}
+
+.btn-box a:nth-child(2) {
+    background: transparent;
+    color: #00abf0;
+}
+
+.btn-box a:nth-child(2):hover {
+    color: #081b29;
+}
+
+.btn-box a:nth-child(2)::before {
+    background: #00abf0;
+}
+
+.btn-box a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #081b29;
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box a:hover::before {
+    width: 100%;
+}

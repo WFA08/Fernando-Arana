@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Fernando Arana</title>
+</head>
+<body>
+    
+    <header class="header">
+        <a href="#" class="logo">Fernando A.</a>
+        <nav class="navbar">
+            <a href="#" data-target="seccion-inicio" class="active">Inicio</a>
+            <a href="#" data-target="seccion-sobremi">Sobre Mi</a>
+            <a href="#" data-target="seccion-proyectos">Proyectos</a>
+            <a href="#" data-target="seccion-tienda">Tienda</a>
+        </nav>
+    </header>
+
+    <div class="home-sci">
+        <a href="#"><i class='bx bxl-facebook'></i></a>
+        <a href="#"><i class='bx bxl-instagram' ></i></a>
+        <a href="#"><i class='bx bxl-linkedin'></i></a>
+    </div>
+
+    <div class="main-content-container"> 
+    
+        <section class="home active-section" id="seccion-inicio"> 
+            <div class="home-content">
+                <h1>Hola, Soy Fernando Arana.</h1>
+                <h3>Desarrollador FullStack</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia fuga quaerat, impedit reprehenderit quos ipsum deserunt consequuntur, officiis accusamus velit sapiente a cum. Nam, eos aliquam? Accusamus, error architecto.</p>
+                <div class="btn-box">
+                    <a href="#">Descarga CV</a>
+                    <a href="#">Contactame </a>
+                </div>
+            </div>
+            <div>
+                <img src="img/fernando.jpg" class="img-fluid" alt="Foto de Fernando Arana con halo azul">
+            </div>
+        </section>
+        
+        <section class="about hidden-section" id="seccion-sobremi">
+            <div class="about-content">
+                <h2>👋 Sobre Mi</h2>
+                <p>Mi nombre es Fernando Arana y soy Desarrollador FullStack con pasión por crear experiencias web innovadoras.</p>
+                <p>Utilizo tecnologías modernas como React y Node.js para construir aplicaciones escalables y de alto rendimiento.</p>
+            </div>
+            <div></div> 
+        </section>
+
+        <section class="projects hidden-section" id="seccion-proyectos">
+             <div class="projects-content">
+                 <h2>🛠️ Proyectos</h2>
+                 <p>Lista de mis últimos trabajos y desarrollos.</p>
+             </div>
+             <div></div>
+        </section>
+        
+        <section class="shop hidden-section" id="seccion-tienda">
+             <div class="shop-content">
+                 <h2>🛒 Tienda</h2>
+                 <p>Aquí encontrarás productos digitales y cursos.</p>
+             </div>
+             <div></div>
+        </section>
+
+    </div>
+
+    <script src="./js/script.js" defer></script>
+</body>
+</html>
