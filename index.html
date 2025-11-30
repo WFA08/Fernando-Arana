@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="./style/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- CRÍTICO: Integración de Font Awesome para los iconos en About Me -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJd/rB09X9S41ZJ/zVv1xJ/FzKkC5hYmX9I9y6A6Jg/t8yK5fP9x3uR6zQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJd/rB09X9S41ZJ/zVv1xJ/FzKkC5hYmX9I9y6A6Jg/t8yK5fP9x3uR6zQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Fernando Arana</title>
 </head>
 
@@ -50,25 +52,39 @@
         <!-- SECCIÓN SOBRE MÍ CON ESTRUCTURA POR BLOQUES PARA EL EFECTO SCROLL -->
         <section class="about hidden-section" id="seccion-sobremi">
             <div class="about-content">
-                
+
                 <!-- Bloque 1: Presentación -->
                 <div class="about-section-block" id="block-1">
                     <h2> Sobre Mí: Fernando Arana</h2>
-                    <p>Soy <strong>Fernando José Arana Figueredo</strong>, un desarrollador web en formación de 28 años con una intensa pasión por la <strong>Ciberseguridad</strong>. A los 27 decidí dedicarme de lleno a la tecnología, lo que se traduce en un riguroso régimen de estudio autodidacta, dedicando entre 10 y 12 horas diarias para construir una carrera sólida en el mundo del software.</p>
+                    <p>Soy <strong>Fernando José Arana Figueredo</strong>, un desarrollador web en formación de 28 años
+                        con una intensa pasión por la <strong>Ciberseguridad</strong>. A los 27 decidí dedicarme de
+                        lleno a la tecnología, lo que se traduce en un riguroso régimen de estudio autodidacta,
+                        dedicando entre 10 y 12 horas diarias para construir una carrera sólida en el mundo del
+                        software.</p>
                 </div>
 
                 <!-- Bloque 2: Stack y Proyectos -->
                 <div class="about-section-block" id="block-2">
                     <h3><i class="fas fa-code fa-fw"></i> Stack y Proyectos Clave</h3>
-                    <p>Me especializo en el stack <strong>MERN (MongoDB, Express, React, Node.js)</strong> y mis fundamentos se basan en el dominio de HTML, CSS, y JavaScript.</p>
-                    <p>Refuerzo constantemente mis conocimientos a través de la práctica, desarrollando proyectos propios como mi sitio <strong>derlacstore.com</strong>, donde exploro la automatización y aplico prácticas reales de desarrollo full-stack.</p>
+                    <p>Me especializo en el stack <strong>MERN (MongoDB, Express, React, Node.js)</strong> y mis
+                        fundamentos se basan en el dominio de HTML, CSS, y JavaScript.</p>
+                    <p>Refuerzo constantemente mis conocimientos a través de la práctica, desarrollando proyectos
+                        propios como mi sitio <strong>derlacstore.com</strong>, donde exploro la automatización y aplico
+                        prácticas reales de desarrollo full-stack.</p>
                 </div>
 
                 <!-- Bloque 3: Ciberseguridad -->
                 <div class="about-section-block" id="block-3">
                     <h3><i class="fas fa-shield-alt fa-fw"></i> Enfoque en Ciberseguridad</h3>
-                    <p>Mi camino hacia la Ciberseguridad es una prioridad. Como base para avanzar hacia el <strong>pentesting</strong> y la <strong>seguridad ofensiva</strong>, he profundizado en el manejo de <strong>Linux</strong>, la <strong>terminal Bash</strong>, y en la administración de permisos y sistemas.</p>
-                    <p>Mi objetivo es convertirme en un <strong>Full-Stack Developer</strong> experto y, posteriormente, especializarme en Ciberseguridad, combinando mis habilidades de desarrollo con un profundo conocimiento de análisis y protección de sistemas. Creo en el aprendizaje constante y en construir proyectos reales que hablen por mi dedicación.</p>
+                    <p>Mi camino hacia la Ciberseguridad es una prioridad. Como base para avanzar hacia el
+                        <strong>pentesting</strong> y la <strong>seguridad ofensiva</strong>, he profundizado en el
+                        manejo de <strong>Linux</strong>, la <strong>terminal Bash</strong>, y en la administración de
+                        permisos y sistemas.
+                    </p>
+                    <p>Mi objetivo es convertirme en un <strong>Full-Stack Developer</strong> experto y, posteriormente,
+                        especializarme en Ciberseguridad, combinando mis habilidades de desarrollo con un profundo
+                        conocimiento de análisis y protección de sistemas. Creo en el aprendizaje constante y en
+                        construir proyectos reales que hablen por mi dedicación.</p>
                 </div>
 
             </div>
@@ -83,14 +99,33 @@
                 <p>Lista de mis últimos trabajos y desarrollos.</p>
             </div>
 
-            <section class="projects-grid">
-                    <div class="project-card">PROYECTO 1</div>
-                    <div class="project-card">PROYECTO 2</div>
-                    <div class="project-card">PROYECTO 3</div>
-                    <div class="project-card">PROYECTO 4</div>
-                    <div class="project-card">PROYECTO 5</div>
-                    <div class="project-card">PROYECTO 6</div>
-                </section>
+            <!-- Contenedor principal de la grilla de proyectos -->
+            <section class="projects-grid" id="projects-grid">
+                <div class="project-card" onclick="abrirCalculadora()">Calculadora</div>
+                <div class="project-card">PROYECTO 2</div>
+                <div class="project-card">PROYECTO 3</div>
+                <div class="project-card">PROYECTO 4</div>
+                <div class="project-card">PROYECTO 5</div>
+                <div class="project-card">PROYECTO 6</div>
+            </section>
+
+            <!-- INICIO: VISTA DEL PROYECTO INDIVIDUAL (Oculta por defecto) -->
+            <!-- CRÍTICO: Se corrigió el ID para que coincida con el JS (de 'pro' a 'projects-grid') -->
+            <div id="project-view" style="display: none;">
+
+                <!-- BOTÓN DE CERRAR/VOLVER -->
+                <!-- Este botón llama a la nueva función de JavaScript para cerrar la vista del proyecto y mostrar la grilla. -->
+                <button id="close-project" onclick="cerrarProyecto()" class="close-btn">
+                    <i class='bx bx-arrow-back'></i> Volver a la Grilla de Proyectos
+                </button>
+
+                <!-- Contenedor donde se insertará el IFRAME con el proyecto (ej. la calculadora) -->
+                <div id="project-content" class="project-content-embed">
+                    <!-- Aquí se carga el contenido del iframe dinámicamente -->
+                </div>
+
+            </div>
+            <!-- FIN: VISTA DEL PROYECTO INDIVIDUAL -->
 
             <div></div>
         </section>

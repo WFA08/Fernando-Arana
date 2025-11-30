@@ -59,4 +59,39 @@ document.addEventListener('DOMContentLoaded', () => {
          initialSection.classList.remove('hidden-section');
          initialSection.classList.add('active-section');
     }
-})
+}
+)
+
+function abrirCalculadora() {
+    const projectsGrid = document.getElementById('projects-grid');
+    const projectView = document.getElementById('project-view');
+    const projectContent = document.getElementById('project-content');
+    const closeBtn = document.getElementById('close-project');
+    // Ocultar la cuadrícula de proyectos
+    projectsGrid.style.display = 'none';
+    // Mostrar la vista del proyecto
+    projectView.style.display = 'block';
+    // Cargar el contenido de la calculadora
+    projectContent.innerHTML = `<iframe src="projects/calculadora/calculadora.html" width="100%" height="500px" style="border:none;"></iframe>`;
+}
+
+function cerrarProyecto() {
+    const projectsGrid = document.getElementById('projects-grid');
+    const projectView = document.getElementById('project-view');
+    const projectContent = document.getElementById('project-content');
+
+    // Ocultar la vista del proyecto
+    if (projectView) {
+        projectView.style.display = 'none';
+    }
+    
+    // Volver a mostrar la grilla
+    if (projectsGrid) {
+        projectsGrid.style.display = 'grid'; // O 'block', dependiendo de cómo definas 'projects-grid'
+    }
+
+    // Opcional: limpiar el contenido incrustado
+    if (projectContent) {
+        projectContent.innerHTML = '';
+    }
+};

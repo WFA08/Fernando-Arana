@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,17 +8,18 @@
 }
 
 /* El body ahora maneja el fondo y la altura de la pantalla */
-body{
+body {
     color: #ededed;
-    background-color: #081b29; /* Fondo fijo */
+    background-color: #081b29;
+    /* Fondo fijo */
     height: 100vh;
     overflow-y: auto;
-    overflow-x: hidden  ;
+    overflow-x: hidden;
 }
 
 /* --- HEADER / NAVIGATION (Se mantiene fijo) --- */
 
-.header{
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -31,14 +32,14 @@ body{
     z-index: 100;
 }
 
-.logo{
+.logo {
     font-size: 25px;
     color: #ededed;
     text-decoration: none;
     font-weight: 600;
 }
 
-.navbar a{
+.navbar a {
     font-size: 18px;
     color: #ededed;
     text-decoration: none;
@@ -46,23 +47,25 @@ body{
     margin-left: 35px;
 }
 
-.navbar a:hover, 
-.navbar a.active{
+.navbar a:hover,
+.navbar a.active {
     color: #00abf0;
 }
 
 /* --- ÁREA SOCIAL (Se mantiene fija) --- */
-.home-sci{
-    position: fixed; /* CRÍTICO: Fija la posición */
+.home-sci {
+    position: fixed;
+    /* CRÍTICO: Fija la posición */
     bottom: 40px;
-    left: 10%; /* Alinea con el padding del contenido */
+    left: 10%;
+    /* Alinea con el padding del contenido */
     width: 170px;
     display: flex;
     justify-content: space-between;
-    z-index: 90; 
+    z-index: 90;
 }
 
-.home-sci a{
+.home-sci a {
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -105,42 +108,57 @@ body{
 
 /* Definición de la animación */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Estilos base para todas las secciones (ocupan el 100% del contenedor) */
-.home, .about, .projects, .shop {
-    height: 100vh; /* Ocupa la altura completa de la vista */
+.home,
+.about,
+.projects,
+.shop {
+    height: 100vh;
+    /* Ocupa la altura completa de la vista */
     width: 100%;
-    
+
     /* Propiedades de Transición y Opacidad */
-    transition: opacity 0.5s ease-in-out; 
-    opacity: 0; 
-    display: none; 
-    
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    display: none;
+
     /* Configuración compartida de Flexbox */
-    align-items: center; /* Centrado vertical compartido */
-    padding: 0 10%; 
+    align-items: center;
+    /* Centrado vertical compartido */
+    padding: 0 10%;
 }
 
 /* === REGLAS ESPECÍFICAS PARA EL LAYOUT === */
 
 /* HOME: Mantener layout de 2 columnas */
 .home {
-    justify-content: space-between; 
+    justify-content: space-between;
     flex-direction: row;
 }
 
 /* OTRAS SECCIONES: Centrar contenido, elevarlo y usar diseño de 1 columna */
-.about, .projects, .shop {
-    justify-content: center; /* Centrado horizontal del bloque */
-    flex-direction: column; /* Apila el contenido verticalmente */
+.about,
+.projects,
+.shop {
+    justify-content: center;
+    /* Centrado horizontal del bloque */
+    flex-direction: column;
+    /* Apila el contenido verticalmente */
     min-height: 100vh;
     height: auto;
     /* CRÍTICO: Desplaza el contenido hacia arriba */
-    padding-top: 100px; 
-    padding-bottom: 50px; /* Asegura espacio si el scroll llega al final */
+    padding-top: 100px;
+    padding-bottom: 50px;
+    /* Asegura espacio si el scroll llega al final */
     /* Asegura que la sección completa tenga un alineamiento de texto por defecto */
     text-align: center;
 }
@@ -153,7 +171,7 @@ body{
     /* Transición suave para el efecto de scroll */
     transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s;
     /* Asegura que los márgenes entre bloques funcionen correctamente */
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 /* Clase para ocultar los bloques con efecto */
@@ -161,7 +179,7 @@ body{
     opacity: 0;
     visibility: hidden;
     /* Desplazamiento ligero hacia abajo para el efecto de "desaparición" */
-    transform: translateY(20px); 
+    transform: translateY(20px);
 }
 
 
@@ -172,35 +190,46 @@ body{
 
 /* CLASE 2: Muestra el contenido y aplica la animación de entrada */
 .active-section {
-    display: flex !important; /* Muestra el contenido */
-    opacity: 1; 
-    animation: fadeIn 0.8s ease-in-out forwards; 
+    display: flex !important;
+    /* Muestra el contenido */
+    opacity: 1;
+    animation: fadeIn 0.8s ease-in-out forwards;
 }
 
 /* --- ÁREA DE CONTENIDO Y COLUMNAS --- */
 
 /* Contenedor de texto (Columna izquierda) */
-.home-content, .about-content, .projects-content, .shop-content {
+.home-content,
+.about-content,
+.projects-content,
+.shop-content {
     /* Por defecto, width: 50% para .home-content */
-    width: 50%; 
+    width: 50%;
     text-align: left;
     /* Necesario para el scroll fade: */
-    transition: opacity 0.5s ease-out; 
+    transition: opacity 0.5s ease-out;
 }
 
 /* CRÍTICO: Anular el width y centrar el bloque de texto para las secciones centradas */
-.about-content, .projects-content, .shop-content {
-    width: 70%; /* Mantiene el bloque de contenido al 70% del espacio */
-    max-width: 800px; /* Impide que sea ridículamente ancho en monitores grandes */
-    text-align: left; 
+.about-content,
+.projects-content,
+.shop-content {
+    width: 70%;
+    /* Mantiene el bloque de contenido al 70% del espacio */
+    max-width: 800px;
+    /* Impide que sea ridículamente ancho en monitores grandes */
+    text-align: left;
     margin: 0 auto;
 }
 
 /* Centra el título principal de la sección */
-.about-content h2, .projects-content h2, .shop-content h2 {
+.about-content h2,
+.projects-content h2,
+.shop-content h2 {
     font-size: 48px;
     color: #00abf0;
-    margin-bottom: 30px; /* Espacio después del título principal */
+    margin-bottom: 30px;
+    /* Espacio después del título principal */
     text-align: center;
 }
 
@@ -208,7 +237,8 @@ body{
 .about-content h2 .fas,
 .about-content h3 .fas {
     color: #00abf0;
-    margin-right: 10px; /* Añade un poco de espacio a la derecha del icono */
+    margin-right: 10px;
+    /* Añade un poco de espacio a la derecha del icono */
 }
 
 
@@ -216,42 +246,50 @@ body{
 .about-content h3 {
     font-size: 28px;
     font-weight: 600;
-    color: #ededed; /* Mantiene el color blanco */
-    margin-top: 35px; /* Espacio grande antes de cada subsección */
+    color: #ededed;
+    /* Mantiene el color blanco */
+    margin-top: 35px;
+    /* Espacio grande antes de cada subsección */
     margin-bottom: 15px;
-    border-bottom: 2px solid rgba(0, 171, 240, 0.5); /* Línea de énfasis sutil */
+    border-bottom: 2px solid rgba(0, 171, 240, 0.5);
+    /* Línea de énfasis sutil */
     padding-bottom: 5px;
 }
 
 /* Estilos de párrafos de contenido */
-.about-content p, .projects-content p, .shop-content p {
+.about-content p,
+.projects-content p,
+.shop-content p {
     text-align: center;
     font-size: 18px;
-    line-height: 1.8; /* Aumenta el interlineado para mejor lectura */
-    margin-bottom: 20px; /* Espacio entre párrafos */
+    line-height: 1.8;
+    /* Aumenta el interlineado para mejor lectura */
+    margin-bottom: 20px;
+    /* Espacio entre párrafos */
 }
 
 /* Estilos para el texto resaltado (strong) */
 .about-content strong {
-    color: #00abf0; /* Color de acento para términos clave (MERN, Linux, Ciberseguridad) */
+    color: #00abf0;
+    /* Color de acento para términos clave (MERN, Linux, Ciberseguridad) */
     font-weight: 700;
 }
 
 
 /* Estilos de la sección HOME */
-.home-content h1{
+.home-content h1 {
     font-size: 56px;
     font-weight: 700;
     line-height: 1.2;
 }
 
-.home-content h3{
+.home-content h3 {
     font-size: 32px;
     font-weight: 700;
     color: #00abf0;
 }
 
-.home-content p{
+.home-content p {
     font-size: 16px;
     margin: 20px 0 40px;
 }
@@ -261,37 +299,37 @@ body{
 /* --- IMAGEN DE PERFIL Y DIFUMINADO (Halo) --- */
 
 /* Contenedor de la Imagen (Columna Derecha Fija en HOME) */
-.home > div:nth-child(2),
-.about > div:nth-child(2),
-.projects > div:nth-child(2),
-.shop > div:nth-child(2) {
+.home>div:nth-child(2),
+.about>div:nth-child(2),
+.projects>div:nth-child(2),
+.shop>div:nth-child(2) {
     /* Mantiene el tamaño reservado para la imagen/columna derecha */
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 350px; 
-    height: 350px; 
+    width: 350px;
+    height: 350px;
 }
 
 /* CRÍTICO: Ocultamos las columnas derechas de las secciones centradas */
-.about > div:nth-child(2), 
-.projects > div:nth-child(2), 
-.shop > div:nth-child(2) {
-    display: none; 
+.about>div:nth-child(2),
+.projects>div:nth-child(2),
+.shop>div:nth-child(2) {
+    display: none;
 }
 
 
 /* Solo la sección 'home' tiene el halo y la imagen visible */
-.home > div:nth-child(2) {
-    overflow: hidden; 
+.home>div:nth-child(2) {
+    overflow: hidden;
     border-radius: 50%;
-    box-shadow: 
+    box-shadow:
         0 0 0px 5px #00abf0,
         0 0 15px 10px rgba(0, 171, 240, 0.7),
         0 0 25px 12px rgba(0, 171, 240, 0.4);
 }
 
-.home > div:nth-child(2) img {
+.home>div:nth-child(2) img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -299,14 +337,14 @@ body{
 
 /* --- BOTONES (btn-box) --- */
 
-.home-content .btn-box{
+.home-content .btn-box {
     display: flex;
     justify-content: space-between;
     width: 345px;
     height: 50px;
 }
 
-.btn-box a{
+.btn-box a {
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -326,7 +364,7 @@ body{
     transition: .5s;
 }
 
-.btn-box a:hover{
+.btn-box a:hover {
     color: #00abf0;
 }
 
@@ -359,24 +397,69 @@ body{
     width: 100%;
 }
 
+
+
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-  gap: 20px;
-  padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas */
+    gap: 20px;
+    padding: 20px;
 }
 
 .project-card {
-  background: #f4f4f4;
-  color: #081b29;
-  padding: 50px;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  transition: transform .2s;
+    background: #f4f4f4;
+    color: #081b29;
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform .2s;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
+
+/* --- MEDIA QUERIES (Responsividad) --- */
+@media (max-width: 991px) {
+    .home {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .home>div:nth-child(2) {
+        margin-top: 30px;
+    }
+
+    .home-content,
+    .about-content,
+    .projects-content,
+    .shop-content {
+        width: 100%;
+    }
+
+    .btn-box {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .btn-box a {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .btn-box a:last-child {
+        margin-bottom: 0;
+    }
+}
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        /* 1 columna en pantallas pequeñas */
+    }
+}
+/* Fin del archivo style.css */
